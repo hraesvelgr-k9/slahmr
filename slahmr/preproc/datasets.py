@@ -52,7 +52,7 @@ def update_args(args):
 
     else:
         assert args.root is not None
-        args.img_name = args.img_name if args.img_name is not None else "images"
+        args.img_name = getattr(args, "img_name", None) or "images"
         args.split = ""
 
     args.img_dirs, args.seqs = get_all_img_dirs(
